@@ -1,45 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.main')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'Staff Timesheet')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+@section('content')
+    <table class="table table-striped">
+        <thead>
+            <th class="text-center">Staff Id</th>
+            <th class="text-center">Monday</th>
+            <th class="text-center">Tuesday</th>
+            <th class="text-center">Wednesday</th>
+            <th class="text-center">Thursday</th>
+            <th class="text-center">Friday</th>
+            <th class="text-center">Saturday</th>
+            <th class="text-center">Sunday</th>
+        </thead>
+        <tbody>
+            @foreach ($timesheet as $staff)
+                <tr>
+                    <td class="text-center">{{ $staff->staffid }}</td>
+                    <td class="text-center">{{ $staff->monday }}</td>
+                    <td class="text-center">{{ $staff->tuesday }}</td>
+                    <td class="text-center">{{ $staff->wednesday }}</td>
+                    <td class="text-center">{{ $staff->thursday }}</td>
+                    <td class="text-center">{{ $staff->friday }}</td>
+                    <td class="text-center">{{ $staff->saturday }}</td>
+                    <td class="text-center">{{ $staff->sunday }}</td>
+                </tr>
+            @endforeach
+        </tbody>        
+    </table>   
+@endsection
