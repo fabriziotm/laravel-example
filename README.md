@@ -9,11 +9,7 @@ This is a Laravel + Eloquent ORM implementation example
 2. Unzip /libs.zip to create vendor folder (where dependencies live)
 3. Edit .env settings as required (db connection) for various deployment environments
 4. Create database table and populate it using the dump below:
-			`
-			--
-			-- Table structure for table `rota_slot_staff`
-			--
-
+			
 			CREATE TABLE IF NOT EXISTS `rota_slot_staff` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT,
 			  `rotaid` int(11) NOT NULL,
@@ -32,10 +28,6 @@ This is a Laravel + Eloquent ORM implementation example
 			  KEY `rotaid` (`rotaid`,`staffid`),
 			  KEY `daynumber` (`daynumber`)
 			) ENGINE=MyISAM  DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=283626 ;
-
-			--
-			-- Dumping data for table `rota_slot_staff`
-			--
 
 			INSERT INTO `rota_slot_staff` (`id`, `rotaid`, `daynumber`, `staffid`, `slottype`, `starttime`, `endtime`, `workhours`, `premiumminutes`, `roletypeid`, `freeminutes`, `seniorcashierminutes`, `splitshifttimes`) VALUES
 			(44369, 332, 6, NULL, 'shift', '19:00:00', '03:00:00', 8.00, 0, 11, 0, 0, ''),
@@ -159,7 +151,7 @@ This is a Laravel + Eloquent ORM implementation example
 			(44404, 332, 2, 68, 'dayoff', NULL, NULL, 0.00, NULL, NULL, NULL, NULL, NULL),
 			(44427, 332, 5, 68, 'dayoff', NULL, NULL, 0.00, NULL, NULL, NULL, NULL, NULL),
 			(44437, 332, 6, 68, 'dayoff', NULL, NULL, 0.00, NULL, NULL, NULL, NULL, NULL);
-			`
+			
 
 ### A note on dependencies
 
