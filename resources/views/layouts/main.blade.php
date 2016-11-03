@@ -5,7 +5,7 @@
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
         <link href="public/css/custom.css" rel="stylesheet">
         <!-- jQuery -->
-        <script src="js/jquery.js"></script>
+        <script src="public/js/jquery.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="public/js/bootstrap.min.js"></script>
     </head>
