@@ -8,7 +8,7 @@ This is a Laravel + Eloquent ORM implementation example
 1. Clone master branch into a folder
 2. Unzip libs.zip to create vendor folder (where dependencies live)
 3. Rename .env.developer file to .env and edit its settings as required (db connection) for various deployment environments
-4. Create database table and populate it using the dump below:
+4. Create database table and populate it using the dump below (or run 'php artisan migrate --path=database/migrations/;' on root folder of your project via terminal):
 			
 			CREATE TABLE IF NOT EXISTS `rota_slot_staff` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT,
