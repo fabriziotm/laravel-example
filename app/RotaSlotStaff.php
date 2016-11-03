@@ -76,17 +76,18 @@ class RotaSlotStaff extends Model {
 	}
 
 	// Get total hours works per day
+	// x3600 to convert to seconds then parse from seconds to time then substring to take just hours and minutes
 	public function scopeWorkedHours($query)
 	{
 		return $query->select(
     		 DB::raw('\'Total Hours Worked\' as staffid'),
-        	 DB::raw('SUM(IF(daynumber = 0, TRUNCATE(workhours,2) , null)) as monday'),
-        	 DB::raw('SUM(IF(daynumber = 1, TRUNCATE(workhours,2) , null)) as tuesday'),
-        	 DB::raw('SUM(IF(daynumber = 2, TRUNCATE(workhours,2) , null)) as wednesday'),
-        	 DB::raw('SUM(IF(daynumber = 3, TRUNCATE(workhours,2) , null)) as thursday'),
-        	 DB::raw('SUM(IF(daynumber = 4, TRUNCATE(workhours,2) , null)) as friday'),
-        	 DB::raw('SUM(IF(daynumber = 5, TRUNCATE(workhours,2) , null)) as saturday'),
-        	 DB::raw('SUM(IF(daynumber = 6, TRUNCATE(workhours,2) , null)) as sunday')
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 0, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as monday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 1, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as tuesday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 2, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as wednesday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 3, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as thursday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 4, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as friday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 5, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as saturday'),
+        	 DB::raw('SUBSTRING(SEC_TO_TIME(SUM(IF(daynumber = 6, TRUNCATE(workhours,2)*3600 , null))), 1, 5) as sunday')
         );
 	}
 
